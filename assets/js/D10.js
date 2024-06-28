@@ -317,7 +317,7 @@ rollTheDices(8);
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
-const date = new Date('june 29, 2024');
+const date = new Date('june 30, 24');
 
 const howManyDays = function (seldate) {
   const seldateparse = Date.parse(seldate);
@@ -327,14 +327,14 @@ const howManyDays = function (seldate) {
   daydiff = daydiff / 60;   // s to m
   daydiff = daydiff / 60;   // m to h
   daydiff = daydiff / 24;   // h to d
-  return daydiff;
+  return Math.floor(daydiff + 1);
 }
 
 console.log(howManyDays(date));
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
-const birthday = new Date('june 14, 2001 23:15:30');
+const birthday = new Date('june 28, 2001');
 console.log(birthday);
 
 function isTodayMyBirthday(birthdate) {
