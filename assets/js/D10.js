@@ -240,15 +240,15 @@ console.log(deleteOne("ciaone a tutti", true))
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
-*/
+// *
+// const reg = /[0-9]/;
 
-//  function onlyLetters(string){
-//   for(let i = 0; i < string.length; i++){
-//     slicedstring = string.slice(i, i + 1);
-//     if(slicedstring === )
-//   }
-//  }
+// const onlyLetters = function(st){
+//   st.replace(reg, "TT");
+//   return st
+// }
 
+// console.log(onlyLetters("uwovr7cwoqfbr8qpwqfr3"));
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
@@ -322,10 +322,10 @@ const howManyDays = function (seldate) {
   const seldateparse = Date.parse(seldate);
   const daydateparse = Date.parse(daydate);
   let daydiff = seldateparse - daydateparse;
-  daydiff = daydiff / 1000;
-  daydiff = daydiff / 60;
-  daydiff = daydiff / 60;
-  daydiff = daydiff / 24;
+  daydiff = daydiff / 1000; // ms to s
+  daydiff = daydiff / 60;   // s to m
+  daydiff = daydiff / 60;   // m to h
+  daydiff = daydiff / 24;   // h to d
   return daydiff;
 }
 
@@ -333,7 +333,26 @@ console.log(howManyDays(date));
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
+const birthday = new Date('june 14, 2001 23:15:30');
+console.log(birthday);
 
+function isTodayMyBirthday(birthdate){
+  const mday = birthdate.getMonth();
+  const todaymonth = daydate.getMonth();
+  if((mday - todaymonth) === 0){
+    const bday = birthdate.getDate();
+    const todayday = daydate.getDate();
+    if((bday - todayday) === 0){
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+
+console.log(isTodayMyBirthday(birthday))
 // Arrays & Oggetti
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
@@ -342,11 +361,37 @@ console.log(howManyDays(date));
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
+giovanni = {
+  name: "Giovanni",
+  surname: "Pesce",
+  age: 40,
+}
 
+
+function deleteProp(ob, str){
+  delete ob[str];
+  return ob;
+}
+
+console.log(deleteProp(giovanni,"surname"))
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
+let newestm = 0;
 
+function newestMovie(){
+  for(let i = 0; i < movies.length; i++){
+    moviesY = parseInt(movies[i].Year);
+    if(moviesY > newestm){
+      newestm = moviesY;
+    } else {
+      newestm = newestm;
+    }
+  }
+  return newestm
+};
+
+console.log(newestMovie())
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
