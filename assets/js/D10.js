@@ -239,16 +239,21 @@ console.log(deleteOne("ciaone a tutti", true))
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
 
-  Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
-// *
-// const reg = /[0-9]/;
+  Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"*/
 
-// const onlyLetters = function(st){
-//   st.replace(reg, "TT");
-//   return st
-// }
+const onlyLetters = function(stringa){
+  const array = stringa.split("");
+  const newarr = [];
+  for(let i = 0; i < 10; i++){
+    for(let j = 0; j < array.length ;j++){
+      if(array[j] === `${i}`){
+      newarr.push(array[j]);        
+      }
+    }
+  } console.log(newarr)
+}
 
-// console.log(onlyLetters("uwovr7cwoqfbr8qpwqfr3"));
+ onlyLetters("par6ol9a be4ll8a");
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
