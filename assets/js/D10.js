@@ -477,7 +477,7 @@ const removeIndex = function (n) {
   return movies
 };
 
-console.log(removeIndex(6))
+console.log(removeIndex(5))
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
@@ -580,10 +580,10 @@ addclass()
 
 */
 
-function tree(){
+function tree(n){
   let as = "";
   const divtree = document.getElementById("tree");
-  for(let i = 0; i < 10; i++){    
+  for(let i = 0; i < n; i++){    
     const pardiv = document.createElement("div");
     const par = document.createElement("p");
     as = as + "*";
@@ -593,7 +593,7 @@ function tree(){
   }
 }
 
-tree()
+tree(4)
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
