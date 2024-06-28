@@ -275,7 +275,7 @@ const settimana = [
 const daydate = new Date();
 
 const whatDayIsIt = function () {
-  day = daydate.getDay();
+  const day = daydate.getDay();
   let wday;
   for (let i = 0; i < settimana.length; i++) {
     if (day === i) {
@@ -298,21 +298,23 @@ console.log(whatDayIsIt());
       values: [3, 3, 4]
   }
 */
-const value = [];
 
 function rollTheDices(el) {
-  sum = 0;
+  const ob = {
+    sum: 0,
+    value: [],
+  };
   for (let i = 0; i < el; i++) {
     rolldice = dice();
-    value.push(rolldice);
-    sum += rolldice;
+    ob.value.push(rolldice);
+    ob.sum += rolldice;
   }
+  console.log(ob);
 }
 
-rollTheDices(4);
+rollTheDices(8);
 
-console.log(value);
-console.log(sum);
+
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
@@ -452,20 +454,21 @@ searchByTitle('Lord');
 */
 
 const searchAndDivide = function(string) {
-  const match = [];
-  const unmatch = [];
+  const ob = {
+    match: [],
+    unmatch: [],
+  };
 	for(let i = 0; i < movies.length; i++){
     if(movies[i].Title.includes(string)){
-      match.push(movies[i].Title);
+      ob.match.push(movies[i].Title);
     } else {
-      unmatch.push(movies[i].Title);
+      ob.unmatch.push(movies[i].Title);
     }
   }
-  console.log(match)
-  console.log(unmatch)
+  console.log(ob)
 };
 
-searchAndDivide("of");
+searchAndDivide("the");
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
@@ -510,11 +513,11 @@ function printtd(){
   for(let i = 0; i < tdNode.length; i++){
     const pardiv = document.createElement("div");
     const par = document.createElement("p");
-    let td = tdNode[i].value
+    let td = tdNode[i].textContent
     console.log(td)
-    /*par.innerText = `${td}`;
+    par.innerText = `${td}`;
     pardiv.appendChild(par);
-    printlist.appendChild(pardiv);*/
+    printlist.appendChild(pardiv);
   }
 }
 
@@ -522,19 +525,51 @@ printtd();
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+function redlink(){
+  const link = document.querySelectorAll("a");
+  link.forEach((el) => {
+    el.style.backgroundColor = "red";
+  })
+}
 
+redlink();
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
+const addli = function(string){
+  const ul = document.getElementById("myList");
+  const li = document.createElement("li");
+  li.innerText = `${string}`;
+  ul.appendChild(li);
+}
+
+addli("un elemegihoghiethpihoh");
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+function removeli(){
+  const ul = document.getElementById("myList");
+  const li = document.querySelectorAll("li");
+  li.forEach((el) => {
+    ul.removeChild(el);
+  })
+}
+
+removeli();
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
 
+function addclass(){
+  const tr = document.querySelectorAll("tr");
+  tr.forEach( el => {
+    el.classList.add("test");
+  });
+};
+
+addclass()
 // [EXTRA] JS Avanzato
 
 /* ESERCIZIO 27
