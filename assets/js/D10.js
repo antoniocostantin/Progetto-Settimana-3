@@ -241,19 +241,13 @@ console.log(deleteOne("ciaone a tutti", true))
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"*/
 
-const onlyLetters = function(stringa){
-  const array = stringa.split("");
-  const newarr = [];
-  for(let i = 0; i < 10; i++){
-    for(let j = 0; j < array.length ;j++){
-      if(array[j] === `${i}`){
-      newarr.push(array[j]);        
-      }
-    }
-  } console.log(newarr)
+const onlyLetters = function (stringa) {
+  arraystring = stringa.split(/[0-9]/);
+  stringa = arraystring.join('');
+  console.log(stringa);
 }
 
- onlyLetters("par6ol9a be4ll8a");
+onlyLetters("par6ol9a be4ll8a");
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
@@ -343,13 +337,13 @@ console.log(howManyDays(date));
 const birthday = new Date('june 14, 2001 23:15:30');
 console.log(birthday);
 
-function isTodayMyBirthday(birthdate){
+function isTodayMyBirthday(birthdate) {
   const mday = birthdate.getMonth();
   const todaymonth = daydate.getMonth();
-  if((mday - todaymonth) === 0){
+  if ((mday - todaymonth) === 0) {
     const bday = birthdate.getDate();
     const todayday = daydate.getDate();
-    if((bday - todayday) === 0){
+    if ((bday - todayday) === 0) {
       return true;
     } else {
       return false;
@@ -375,26 +369,26 @@ giovanni = {
 }
 
 
-function deleteProp(ob, str){
+function deleteProp(ob, str) {
   delete ob[str];
   return ob;
 }
 
-console.log(deleteProp(giovanni,"surname"))
+console.log(deleteProp(giovanni, "surname"))
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
 
 const newest = () => {
-	let newYear = parseInt(movies[0].Year);
-	let newMovie = movies[0];
-	movies.forEach(item => {
-		if (parseInt(item.Year) > newYear) {
-			newYear = parseInt(item.Year);
-			newMovie = item;
-		}
-	});
-	console.log(newMovie);
+  let newYear = parseInt(movies[0].Year);
+  let newMovie = movies[0];
+  movies.forEach(item => {
+    if (parseInt(item.Year) > newYear) {
+      newYear = parseInt(item.Year);
+      newMovie = item;
+    }
+  });
+  console.log(newMovie);
 };
 
 newest();
@@ -402,8 +396,8 @@ newest();
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
 
-const countMovies = function(){
-  return  l = movies.length;
+const countMovies = function () {
+  return l = movies.length;
 }
 
 console.log(countMovies())
@@ -411,9 +405,9 @@ console.log(countMovies())
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
 
-function onlyTheYears(){
+function onlyTheYears() {
   const onlyyear = [];
-  for (let i = 0; i < movies.length; i++){
+  for (let i = 0; i < movies.length; i++) {
     onlyyear.push(parseInt(movies[i].Year));
   }
   return onlyyear;
@@ -425,7 +419,7 @@ console.log(onlyTheYears())
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
 const onlyInLastMillennium = onlyyear.filter(el => {
- return el < 2000 && el > 999;
+  return el < 2000 && el > 999;
 });
 
 console.log(onlyInLastMillennium)
@@ -441,10 +435,10 @@ console.log(sumAllTheYears)
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
 
-const searchByTitle = function(string) {
+const searchByTitle = function (string) {
   const myMovies = [];
-	for(let i = 0; i < movies.length; i++){
-    if(movies[i].Title.includes(string)){
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Title.includes(string)) {
       myMovies.push(movies[i].Title)
     }
   }
@@ -458,13 +452,13 @@ searchByTitle('Lord');
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 
-const searchAndDivide = function(string) {
+const searchAndDivide = function (string) {
   const ob = {
     match: [],
     unmatch: [],
   };
-	for(let i = 0; i < movies.length; i++){
-    if(movies[i].Title.includes(string)){
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Title.includes(string)) {
       ob.match.push(movies[i].Title);
     } else {
       ob.unmatch.push(movies[i].Title);
@@ -478,8 +472,8 @@ searchAndDivide("the");
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
 
-const removeIndex = function(n) {
-	movies.splice(n , 1);
+const removeIndex = function (n) {
+  movies.splice(n, 1);
   return movies
 };
 
@@ -491,7 +485,7 @@ console.log(removeIndex(2))
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
-function delConteiner(){
+function delConteiner() {
   const conteinerDiv = document.getElementById("conteiner");
   conteinerDiv.parentNode.removeChild(conteinerDiv);
 }
@@ -501,7 +495,7 @@ function delConteiner(){
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 
-function searchtd(){
+function searchtd() {
   const td = document.querySelectorAll("td");
   console.log(td);
 }
@@ -511,11 +505,11 @@ searchtd();
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 
-function printtd(){
+function printtd() {
   const printlist = document.getElementById("printlist");
   const tdNode = document.querySelectorAll("td");
   console.log(tdNode)
-  for(let i = 0; i < tdNode.length; i++){
+  for (let i = 0; i < tdNode.length; i++) {
     const pardiv = document.createElement("div");
     const par = document.createElement("p");
     let td = tdNode[i].textContent
@@ -530,7 +524,7 @@ printtd();
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
-function redlink(){
+function redlink() {
   const link = document.querySelectorAll("a");
   link.forEach((el) => {
     el.style.backgroundColor = "red";
@@ -542,7 +536,7 @@ redlink();
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
-const addli = function(string){
+const addli = function (string) {
   const ul = document.getElementById("myList");
   const li = document.createElement("li");
   li.innerText = `${string}`;
@@ -554,7 +548,7 @@ addli("un elemegihoghiethpihoh");
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
-function removeli(){
+function removeli() {
   const ul = document.getElementById("myList");
   const li = document.querySelectorAll("li");
   li.forEach((el) => {
@@ -567,9 +561,9 @@ removeli();
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
 
-function addclass(){
+function addclass() {
   const tr = document.querySelectorAll("tr");
-  tr.forEach( el => {
+  tr.forEach(el => {
     el.classList.add("test");
   });
 };
