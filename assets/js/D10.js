@@ -35,7 +35,7 @@ const movies = [
   },
   {
     Title: 'Lord of War',
-    Year: '2005',
+    Year: '1005',
     imdbID: 'tt0399295',
     Type: 'movie',
     Poster:
@@ -43,7 +43,7 @@ const movies = [
   },
   {
     Title: 'Lords of Dogtown',
-    Year: '2005',
+    Year: '205',
     imdbID: 'tt0355702',
     Type: 'movie',
     Poster:
@@ -51,7 +51,7 @@ const movies = [
   },
   {
     Title: 'The Lord of the Rings',
-    Year: '1978',
+    Year: '15',
     imdbID: 'tt0077869',
     Type: 'movie',
     Poster:
@@ -247,7 +247,7 @@ const onlyLetters = function (stringa) {
   console.log(stringa);
 }
 
-onlyLetters("par6ol9a be4ll8a");
+onlyLetters("M245an78n56ag7i9a a56 a 6m4e");
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
@@ -374,7 +374,7 @@ function deleteProp(ob, str) {
   return ob;
 }
 
-console.log(deleteProp(giovanni, "surname"))
+console.log(deleteProp(movies[4], "Poster"))
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
@@ -445,7 +445,7 @@ const searchByTitle = function (string) {
   console.log(myMovies)
 };
 
-searchByTitle('Lord');
+searchByTitle('the');
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
@@ -467,7 +467,7 @@ const searchAndDivide = function (string) {
   console.log(ob)
 };
 
-searchAndDivide("the");
+searchAndDivide("Avenger");
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
@@ -477,7 +477,7 @@ const removeIndex = function (n) {
   return movies
 };
 
-console.log(removeIndex(2))
+console.log(removeIndex(6))
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
@@ -497,7 +497,6 @@ function delConteiner() {
 
 function searchtd() {
   const td = document.querySelectorAll("td");
-  console.log(td);
 }
 
 searchtd();
@@ -508,12 +507,10 @@ searchtd();
 function printtd() {
   const printlist = document.getElementById("printlist");
   const tdNode = document.querySelectorAll("td");
-  console.log(tdNode)
   for (let i = 0; i < tdNode.length; i++) {
     const pardiv = document.createElement("div");
     const par = document.createElement("p");
     let td = tdNode[i].textContent
-    console.log(td)
     par.innerText = `${td}`;
     pardiv.appendChild(par);
     printlist.appendChild(pardiv);
@@ -543,7 +540,7 @@ const addli = function (string) {
   ul.appendChild(li);
 }
 
-addli("un elemegihoghiethpihoh");
+addli("ciao");
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
@@ -556,7 +553,7 @@ function removeli() {
   })
 }
 
-removeli();
+//removeli();
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
@@ -583,6 +580,20 @@ addclass()
 
 */
 
+function tree(){
+  let as = "";
+  const divtree = document.getElementById("tree");
+  for(let i = 0; i < 10; i++){    
+    const pardiv = document.createElement("div");
+    const par = document.createElement("p");
+    as = as + "*";
+    par.innerText = `${as}`;
+    pardiv.appendChild(par);
+    divtree.appendChild(pardiv);
+  }
+}
+
+tree()
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
@@ -594,6 +605,8 @@ addclass()
   *****
 
 */
+
+
 
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
